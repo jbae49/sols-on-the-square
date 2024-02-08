@@ -9,8 +9,8 @@
 }
 
 .menu-image {
-    width: 100px;
-    height: auto;
+    width: 150px;
+    height: 150px;
 }
 
 .menu-text h3, .menu-text p {
@@ -18,3 +18,16 @@
     margin: 5px 0;
 }
 
+.language-buttons button {
+    padding: 12px 24px;
+    font-size: 16px;
+    margin: 0 10px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.language-buttons button:hover {
+    background-color: #0056b3;
+}

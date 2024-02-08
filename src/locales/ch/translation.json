@@ -1,7 +1,18 @@
 {
     "menu_title": "菜单",
-    "dish_1": "拌饭",
-    "dish_1_description": "牛肉、猪肉、鸡肉、豆腐、鱼蛋",
-    "dish_2": "排骨汤",
-    "dish_2_description": ""
+    "appetizer_title": "开胃菜",
+    "appetizer_1": "泡菜煎饼",
+    "appetizer_2": "海鲜煎饼",
+    "appetizer_3": "辣年糕",
+    "appetizer_4": "韩式炸鸡",
+    "appetizer_4_description": "选择不酱、配酱、腌制",
+    "soup_title": "汤",
+    "soup_1": "排骨汤",
+    "soup_2": "嫩豆腐汤",
+    "rice_title": "米饭",
+    "rice_1": "拌饭",
+    "rice_1_description": "从牛肉、猪肉、鸡肉、豆腐、鱼蛋中选择",
+    "drink_title": "饮料",
+    "drink_1": "Spotted Cow",
+    "drink_2": "Jinro Soju"
 }

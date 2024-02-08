@@ -1,8 +1,18 @@
 {
     "menu_title": "메뉴",
-    "dish_1": "비빔밥",
-    "dish_1_description": "소고기, 돼지고기, 치킨, 날치알, 두부 비빔밥",
-    "dish_2": "갈비탕",
-    "dish_2_description": ""
+    "appetizer_title": "애피타이저",
+    "appetizer_1": "김치전",
+    "appetizer_2": "해산물 팬케이크",
+    "appetizer_3": "떡볶이",
+    "appetizer_4": "한국식 프라이드치킨",
+    "appetizer_4_description": "소스 없음, 사이드 소스, 절임 중에서 선택",
+    "soup_title": "수프",
+    "soup_1": "갈비탕",
+    "soup_2": "순두부 수프",
+    "rice_title": "밥",
+    "rice_1": "비빔밥",
+    "rice_1_description": "쇠고기, 돼지고기, 닭고기, 두부, 생선알 중에서 선택하세요",
+    "drink_title": "음료수",
+    "drink_1": "Spotted Cow",
+    "drink_2": "진로 소주"
 }
-  

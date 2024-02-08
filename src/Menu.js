@@ -3,32 +3,65 @@ import { useTranslation } from 'react-i18next';
 import './i18n';
 import './Menu.css';
 
+
 function Menu() {
   const { t, i18n } = useTranslation();
+  const sections = ['appetizer', 'soup', 'rice', 'drink'];
 
-  const dishes = [
-    { key: 'dish_1', image: '/bibimbap.jpg', description: 'dish_1_description' },
-    { key: 'dish_2', image: '/galbitang.jpg', description: 'dish_2_description' }
-  ];
+  const handleImageError = (e) => {
+    e.target.style.display = 'none';
+  }
+
+//   const dishes = [
+//     { key: 'dish_1', image: '/bibimbap.jpg', description: 'dish_1_description' },
+//     { key: 'dish_2', image: '/galbitang.jpg', description: 'dish_2_description' }
+//   ];
+  
 
   return (
     <div>
-      <button onClick={() => i18n.changeLanguage('en')}>English</button>
-      <button onClick={() => i18n.changeLanguage('ko')}>한국어</button>
-      <h1>{t('menu_title')}</h1>
-      <div className='menu-container'>
-        {dishes.map((dish) => (
-            <div key={dish.key} className='menu-item'>
-                <img src={dish.image} alt={t(dish.key)} className='menu-image' />
-                <div className='menu-text'>
-                    <h3>{t(dish.key)}</h3>
-                    <p>{t(dish.description)}</p>
+        <div className='language-buttons'>
+            <button className='language-button' onClick={() => i18n.changeLanguage('en')}>English</button>
+            <button className='language-button' onClick={() => i18n.changeLanguage('ko')}>한국어</button>
+            <button className='language-button' onClick={() => i18n.changeLanguage('ch')}>中文</button>
+        </div>
+
+        <h1>{t('menu_title')}</h1>
+
+        <div className='section-links'>
+            {sections.map(section => (
+                <button key={section} onClick={() => document.getElementById(section).scrollIntoView({ behavior: 'smooth' })}>
+                    {t(`${section}_title`)}
+                </button>
+            ))}
+        </div>
+
+        <div className='menu-container'>
+            {sections.map((section, sectionIndex) => (
+                <div id={section} key={sectionIndex} className='menu-section'>
+                    <h2>{t(`${section}_title`)}</h2>
+                    {/* Set the to maximum number of elements from each section */}
+                    {Array.from({ length: 10 }, (_, i) => i+1)
+                    .map(itemNumber => {
+                        const key = `${section}_${itemNumber}`;
+                        const itemName = t(key, { defaultValue: '' });
+                        if (!itemName) return null; 
+                        return (
+                            <div key={key} className='menu-item'>
+                                <img src={`/${key}.jpg`} alt={itemName} className='menu-image' onError={handleImageError}/>
+                                <div className='menu-text'>
+                                    <h3>{itemName}</h3>
+                                    <p>{t(`${key}_description`, {defaultValue: ''})}</p>
+                                </div>
+                            </div>
+                        )
+                    })
+                    .filter(Boolean)}
                 </div>
-            </div>
-  ))}
-  </div>
-</div>
+            ))}
+        </div>
+    </div>
   );
-        }
+}
 
 export default Menu;

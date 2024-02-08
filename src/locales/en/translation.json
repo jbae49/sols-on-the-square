@@ -1,8 +1,19 @@
 {
     "menu_title": "Menu",
-    "dish_1": "Bibimbop",
-    "dish_1_description": "Beef, Pork, Chicken, Tofu, Fish Egg",
-    "dish_2": "Galbi Tang",
-    "dish_2_description": ""
+    "appetizer_title": "Appetizers",
+    "appetizer_1": "Kimchi Pancake",
+    "appetizer_2": "Seafood Pancake",
+    "appetizer_3": "Tteokbokki",
+    "appetizer_4": "Korean Fried Chicken",
+    "appetizer_4_description": "Choose from no sauce, sauce on the side, marinated",
+    "soup_title": "Soups",
+    "soup_1": "Galbi Tang",
+    "soup_2": "Soft Tofu Soup",
+    "rice_title": "Rice",
+    "rice_1": "Bibimbop",
+    "rice_1_description": "Choose from Beef, Pork, Chicken, Tofu, Fish Egg",
+    "drink_title": "Drinks",
+    "drink_1": "Spotted Cow",
+    "drink_2": "Jinro Soju"
 }
   
