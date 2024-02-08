@@ -14,6 +14,12 @@
     "rice_1_description": "Choose from Beef, Pork, Chicken, Tofu, Fish Egg",
     "drink_title": "Drinks",
     "drink_1": "Spotted Cow",
-    "drink_2": "Jinro Soju"
+    "drink_2": "Jinro Soju",
+    "vegetarian_title": "Vegetarian Options",
+    "vegetarian_note": "FOR THE GLUTEN FREE: Tofu Bibimbap WITHOUT gosari is the only option at our restaurant.",
+    "vegetarian_1": "Tofu Bibimbap (has egg)",
+    "vegetarian_2": "Kimchi Pancake",
+    "vegetarian_3": "Soft Tofu Soup (has seafood)",
+    "vegetarian_4": "Veggie Kalguksoo",
+    "vegetarian_5": "Seafood Kalguksoo (has seafood)"
 }
-  

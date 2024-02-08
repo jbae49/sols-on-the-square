@@ -6,7 +6,7 @@ import './Menu.css';
 
 function Menu() {
   const { t, i18n } = useTranslation();
-  const sections = ['appetizer', 'soup', 'rice', 'drink'];
+  const sections = ['appetizer', 'soup', 'rice', 'drink', 'vegetarian'];
 
   const handleImageError = (e) => {
     e.target.style.display = 'none';
@@ -30,8 +30,10 @@ function Menu() {
 
         <div className='section-links'>
             {sections.map(section => (
-                <button key={section} onClick={() => document.getElementById(section).scrollIntoView({ behavior: 'smooth' })}>
-                    {t(`${section}_title`)}
+                <button className="section-button" 
+                key={section} 
+                onClick={() => document.getElementById(section).scrollIntoView({ behavior: 'smooth' })}>
+                {t(`${section}_title`)}
                 </button>
             ))}
         </div>
@@ -41,7 +43,18 @@ function Menu() {
                 <div id={section} key={sectionIndex} className='menu-section'>
                     <h2>{t(`${section}_title`)}</h2>
                     {/* Set the to maximum number of elements from each section */}
-                    {Array.from({ length: 10 }, (_, i) => i+1)
+                    {section === 'vegetarian' ? (
+                      <div>
+                        <div className='warning-box'>
+                            <p>{t('vegetarian_note')}</p></div>
+                            <ul>
+                            {[1, 2, 3, 4, 5].map(num => (
+                                <li key={num}>{t(`vegetarian_${num}`)}</li>
+                            ))}
+                            </ul>
+                        
+                      </div>
+                    ) : (Array.from({ length: 10 }, (_, i) => i+1)
                     .map(itemNumber => {
                         const key = `${section}_${itemNumber}`;
                         const itemName = t(key, { defaultValue: '' });
@@ -56,7 +69,8 @@ function Menu() {
                             </div>
                         )
                     })
-                    .filter(Boolean)}
+                    .filter(Boolean)
+                )}
                 </div>
             ))}
         </div>

@@ -1,11 +1,18 @@
+/* @font-face {
+    font-family: 'CustomFont';
+    src: url('../../Downloads/Single_Day/SingleDay-Regular.ttf') format('truetype');
+} */
+
 .menu-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* font-family: 'CustomFont', sans-serif; */
 }
 
 .menu-item {
     margin-bottom: 20px;
+    /* font-family: 'CustomFont', sans-serif; */
 }
 
 .menu-image {
@@ -16,18 +23,34 @@
 .menu-text h3, .menu-text p {
     text-align: center;
     margin: 5px 0;
+    /* font-family: 'CustomFont', sans-serif; */
 }
 
 .language-buttons button {
     padding: 12px 24px;
-    font-size: 16px;
-    margin: 0 10px;
-    background-color: #007bff;
+    font-size: 20px;
+    margin: 10px 10px;
+    /* background-color: #007bff; */
     border: none;
     border-radius: 5px;
     transition: background-color 0.3s;
+    /* font-family: 'CustomFont', sans-serif; */
 }
 
-.language-buttons button:hover {
+/* .language-buttons button:hover {
     background-color: #0056b3;
+} */
+
+.section-button {
+    /* font-family: 'CustomFont', sans-serif; */
+    font-size: 20px;
+}
+
+.warning-box {
+    background-color: #fff4e5;
+    border: 1px solid #ffcc00;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 20px 5px;
+    color: #333;
 }
