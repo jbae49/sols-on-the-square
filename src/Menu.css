@@ -59,3 +59,17 @@
     font-weight: bold;
     color: #007bff;
 }
+
+.review-promotion {
+    font-weight: bold;
+    text-align: center;
+    margin: 20px 5px;
+    font-size: 16px;
+    color: darkorange;
+}
+
+.cart-notification {
+    margin-left: 10px;
+    color: green;
+    font-weight: bold;
+}
