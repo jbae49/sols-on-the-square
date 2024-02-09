@@ -54,3 +54,8 @@
     margin: 20px 5px;
     color: #333;
 }
+
+.menu-item-price {
+    font-weight: bold;
+    color: #007bff;
+}

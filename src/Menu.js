@@ -53,7 +53,7 @@ function Menu() {
                             ))}
                             </ul>
                         
-                      </div>
+                      </div> 
                     ) : (Array.from({ length: 10 }, (_, i) => i+1)
                     .map(itemNumber => {
                         const key = `${section}_${itemNumber}`;
@@ -65,6 +65,7 @@ function Menu() {
                                 <div className='menu-text'>
                                     <h3>{itemName}</h3>
                                     <p>{t(`${key}_description`, {defaultValue: ''})}</p>
+                                    <p className='menu-item-price'>{t(`${key}_price`)}</p>
                                 </div>
                             </div>
                         )
