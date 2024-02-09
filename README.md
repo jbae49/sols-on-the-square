@@ -1,5 +1,8 @@
 # Sol's on the Square
 
+Webpage demo as of 2024-02-09: https://www.loom.com/share/afac0a0246ca4086afa96dfea17f63a5?sid=f180fc66-d9c8-4cdb-baf8-b25106c4fd4f
+* Added a **cart** feature
+  
 ## Overview
 
 Sol's on the Square is a beloved Korean restaurant in Madison, Wisconsin. Noticing that their paper menus lacked images and didn't cater to the linguistic needs of their significant Chinese clientele, I decided to lend a hand. As a friend of the owner and eager to hone my React skills, I developed this website to enhance the dining experience for all patrons.
