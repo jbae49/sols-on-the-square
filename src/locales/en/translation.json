@@ -55,9 +55,13 @@
     "drink_2_price": "$6.99",
     "vegetarian_title": "Vegetarian Options",
     "vegetarian_note": "FOR THE GLUTEN FREE: Tofu Bibimbap WITHOUT gosari is the only option at our restaurant.",
-    "vegetarian_1": "Tofu Bibimbap (has egg)",
-    "vegetarian_2": "Kimchi Pancake",
-    "vegetarian_3": "Soft Tofu Soup (has seafood)",
+    "vegetarian_1": "Tofu Bibimbap",
+    "vegetarian_1_description": "Mixed Rice with Veggies, Tofu, and (Egg - Optional)",
+    "vegetarian_1_price": "$15.99",
+    "vegetarian_2": "Japanese Style Veggie Udon",
+    "vegetarian_2_price": "$15.99",
+    "vegetarian_3": "Tofu Sweet Glass Noodles",
+    "vegetarian_3_price": "$16.99",
     "vegetarian_4": "Veggie Kalguksoo",
-    "vegetarian_5": "Seafood Kalguksoo (has seafood)"
+    "vegetarian_4_price": "$16.99"
 }

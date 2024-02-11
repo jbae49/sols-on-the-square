@@ -49,7 +49,7 @@ function Menu() {
         }
 
         return (
-            <select value={selectedOptions[itemKey] || ''} onChange={(e) => handleOptionChange(itemKey, e.target.value)}>
+            <select className="custom-select" value={selectedOptions[itemKey] || ''} onChange={(e) => handleOptionChange(itemKey, e.target.value)}>
                 <option value="">{t('select_option')}</option>
                 {options.map(option => (
                     <option key={option} value={option}>{`${option} - ${prices[option]}`}</option>
@@ -67,6 +67,7 @@ function Menu() {
 
     return (
         <div>
+            <img src="/sols-logo.png" className='logo-image'></img>
             <div className='language-buttons'>
                 <button className='language-button' onClick={() => i18n.changeLanguage('en')}>English</button>
                 <button className='language-button' onClick={() => i18n.changeLanguage('ko')}>한국어</button>
@@ -93,18 +94,43 @@ function Menu() {
                     <div id={section} key={sectionIndex} className='menu-section'>
                         <h2>{t(`${section}_title`)}</h2>
 
-                        {/* Set the to maximum number of elements from each section */}
+                        {/* Handling the vegetarian section similar to other sections */}
                         {section === 'vegetarian' ? (
-                            <div>
+                            <>
                                 <div className='warning-box'>
-                                    <p>{t('vegetarian_note')}</p></div>
-                                <ul>
-                                    {[1, 2, 3, 4, 5].map(num => (
-                                        <li key={num}>{t(`vegetarian_${num}`)}</li>
-                                    ))}
-                                </ul>
+                                    <p>{t('vegetarian_note')}</p>
+                                </div>
+                                {Array.from({ length: 4 }, (_, i) => i + 1).map(num => {
+                                    const key = `vegetarian_${num}`;
+                                    const itemName = t(`${key}`);
+                                    const itemDescription = t(`${key}_description`, { defaultValue: '' });
+                                    const itemPrice = t(`${key}_price`);
+                                    const itemImage = `/${key}.jpg`; // Assuming you have images named after the item keys
 
-                            </div>
+                                    const hasOptions = t(`${key}_options`, { returnObjects: true }) !== undefined;
+                                    const item = {
+                                        key,
+                                        description: itemName,
+                                        price: itemPrice,
+                                        image: itemImage,
+                                    };
+
+                                    return (
+                                        <div key={key} className='menu-item'>
+                                            <img src={item.image} alt={itemName} className='menu-image' onError={handleImageError} />
+                                            <div className='menu-text'>
+                                                <h3>{itemName}</h3>
+                                                <p>{itemDescription}</p>
+                                                <p>{itemPrice}</p>
+                                            </div>
+                                            <button className='add-to-cart-button' onClick={() => addToCart(item, key, selectedOptions[key])}>
+                                                Add to Cart
+                                            </button>
+                                            {notification[key] && <span className='cart-notification'>{notification[key]}</span>}
+                                        </div>
+                                    );
+                                })}
+                            </>
                         ) : (Array.from({ length: 10 }, (_, i) => i + 1).map(itemNumber => {
                             const key = `${section}_${itemNumber}`;
                             const itemName = t(key, { defaultValue: '' });
@@ -126,7 +152,7 @@ function Menu() {
                                         {!hasOptions && <p className='menu-item-price'>{item.price}</p>}
                                         {hasOptions && renderOptionsDropdown(key)}
                                     </div>
-                                    <button onClick={() => addToCart(item, key, selectedOptions[key])}>
+                                    <button className='add-to-cart-button' onClick={() => addToCart(item, key, selectedOptions[key])}>
                                         Add to Cart
                                     </button>
                                     {notification[key] && <span className='cart-notification'>{notification[key]}</span>}

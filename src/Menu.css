@@ -18,7 +18,7 @@
 }
 
 .menu-image {
-    width: 150px;
+    width: auto;
     height: 150px;
 }
 
@@ -100,6 +100,8 @@
   transform: scale(1.05) rotate(-1deg);
 }
 
+  
+
 .warning-box {
     background-color: #fff4e5;
     border: 1px solid #ffcc00;
@@ -108,7 +110,9 @@
     margin: 20px 5px;
     color: #333;
 }
-
+.logo-image {
+    width: 150px;
+}
 .menu-item-price {
     font-weight: bold;
     color: #007bff;
@@ -128,3 +132,34 @@
     color: green;
     font-weight: bold;
 }
+
+.add-to-cart-button {
+    
+    color: white; /* Use 'color', not 'font-color' */
+    padding: 5px 10px; /* Example padding */
+    font-size: 13px; /* Example font size */
+    background-color: brown; /* Example background color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+
+.custom-select {
+    background-color: #f0f0f0; /* Light grey background */
+    border: 1px solid #ccc; /* Light grey border */
+    padding: 3px; /* Spacing inside the dropdown */
+    margin-top: 5px; /* Space above the dropdown */
+    margin-bottom: 5px;
+    font-size: 14px; /* Text size */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Change cursor to indicate it's clickable */
+  }
+  
+  .custom-select:hover,
+  .custom-select:focus {
+    border-color: #007bff; /* Highlight color when hovered or focused */
+    outline: none; /* Remove default focus outline */
+  }
+  
