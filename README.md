@@ -15,9 +15,10 @@ Sol's on the Square is a beloved Korean restaurant in Madison, Wisconsin. Notici
 - **Responsive Design**: Enjoy a flawless browsing experience on any device, whether it’s a desktop, tablet, or smartphone.
 
 <div align="center">
-  <img src="./public/ss2.jpg" width="300" height="500" alt="Screenshot 1">
-  <img src="./public/ss2_kr.jpg" width="300" height="500" alt="Screenshot 2">
-  <img src="./public/ss2_ch.jpg" width="300" height="500"  alt="Screenshot 3">
+  <img src="./public/ss1.jpeg" width="300" height="500" alt="Screenshot 1">
+  <img src="./public/ss2.jpg" width="300" height="500" alt="Screenshot 2">
+  <img src="./public/ss3.jpg" width="300" height="500"  alt="Screenshot 3">
+  <img src="./public/ss4.jpg" width="300" height="500"  alt="Screenshot 3">
 </div>
 
 ## Getting Started
