@@ -1,6 +1,7 @@
-{   
+{
     "google_review_promotion": "Participate in a Google review and get 6 pieces of fried or steamed dumplings for free.",
     "menu_title": "Menu",
+    "select_option": "Select Option (Required)",
     "appetizer_title": "Appetizers",
     "appetizer_1": "Kimchi Pancake",
     "appetizer_1_price": "$13.99",
@@ -8,7 +9,14 @@
     "appetizer_2_price": "$14.99",
     "appetizer_3": "Tteokbokki",
     "appetizer_3_description": "With cheese: + $2.00",
-    "appetizer_3_price": "$12.99",
+    "appetizer_3_options": [
+        "With Cheese",
+        "Without Cheese"
+    ],
+    "appetizer_3_price": {
+        "With Cheese": "$16.99",
+        "Without Cheese": "$14.99"
+    },
     "appetizer_4": "Korean Fried Chicken",
     "appetizer_4_description": "Sauce on the side or marinated: + $2.00",
     "appetizer_4_price": "$16.99",
@@ -19,9 +27,24 @@
     "soup_2": "Soft Tofu Soup",
     "soup_2_price": "$16.99",
     "rice_title": "Rice",
-    "rice_1": "Bibimbop: Choose from Beef, Pork, Chicken, Squid, Tofu, Fish Egg",
+    "rice_1": "Bibimbop",
     "rice_1_description": "Mixed Rice with Veggies, Meat & Egg",
-    "rice_1_price": "$15.99",
+    "rice_1_options": [
+        "Beef",
+        "Pork",
+        "Chicken",
+        "Squid",
+        "Tofu",
+        "Fish Egg"
+    ],
+    "rice_1_price": {
+        "Beef": "$15.99",
+        "Pork": "$15.99",
+        "Chicken": "$15.99",
+        "Squid": "$15.99",
+        "Tofu": "$15.99",
+        "Fish Egg": "$15.99"
+    },
     "rice_2": "Ojingeo Deopbap",
     "rice_2_description": "Rice Bowl with Squid",
     "rice_2_price": "$15.99",
