@@ -3,6 +3,10 @@
 Webpage demo as of 2024-02-09: https://www.loom.com/share/afac0a0246ca4086afa96dfea17f63a5?sid=f180fc66-d9c8-4cdb-baf8-b25106c4fd4f
 * Added a **cart** feature
 * Added Google Review Promotion
+
+Demo as of 2024-02-11: https://www.loom.com/share/d9e9108f6fb64ff2a8e6499f5558e60d?sid=8e036cdc-1db5-4b17-817f-282434c1c1b6
+* Added drop down options for Bibimbop (Beef, Chicken, Squid, etc), Teokbokki (With Cheese, Without Cheese) and reflect to the price
+* Better buttons looking with GitHub button styles
   
 ## Overview
 
