@@ -8,7 +8,7 @@
     "appetizer_2": "Seafood Pancake",
     "appetizer_2_price": "$14.99",
     "appetizer_3": "Tteokbokki",
-    "appetizer_3_description": "With cheese: + $2.00",
+    "appetizer_3_description": "Optional: Cheese",
     "appetizer_3_options": [
         "With Cheese",
         "Without Cheese"
@@ -18,12 +18,28 @@
         "Without Cheese": "$14.99"
     },
     "appetizer_4": "Korean Fried Chicken",
-    "appetizer_4_description": "Sauce on the side or marinated: + $2.00",
-    "appetizer_4_price": "$16.99",
+    "appetizer_4_description": "Optional: Sweet & Spicy Sauce",
+    "appetizer_4_options": [
+        "Without Sauce",
+        "Sauce on the side",
+        "Marinated"
+    ],
+    "appetizer_4_price": {
+        "Without Sauce": "$16.99",
+        "Sauce on the side": "$18.99",
+        "Marinated": "$18.99"
+    },
     "soup_title": "Soups",
     "soup_1": "Galbi Tang",
-    "soup_1_description": "Regular Beef Short Rib Soup, With Ginseng: + $2.00",
-    "soup_1_price": "$22.99",
+    "soup_1_description": "Regular Beef Short Rib Soup",
+    "soup_1_options": [
+        "Regular",
+        "With Ginseng"
+    ],
+    "soup_1_price": {
+        "Regular": "$22.99",
+        "With Ginseng": "$24.99"
+    },
     "soup_2": "Soft Tofu Soup",
     "soup_2_price": "$16.99",
     "rice_title": "Rice",
