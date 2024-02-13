@@ -43,6 +43,8 @@
     },
     "soup_2": "Soft Tofu Soup",
     "soup_2_price": "$16.99",
+    "soup_3": "Spicy Kimchi Pork Soup",
+    "soup_3_price": "$15.99",
     "rice_title": "Rice",
     "rice_1": "Bibimbop",
     "rice_1_description": "Mixed Rice with Veggies, Meat & Egg",
@@ -65,6 +67,16 @@
     "rice_2": "Ojingeo Deopbap",
     "rice_2_description": "Rice Bowl with Squid",
     "rice_2_price": "$15.99",
+    "rice_3": "Curry Rice",
+    "rice_3_description": "Choose from Beef or Chicken",
+    "rice_3_options": [
+        "Beef Curry",
+        "Chicken Curry"
+    ],
+    "rice_3_price": {
+        "Beef Curry": "$15.99",
+        "Chicken Curry": "$15.99"
+    },
     "drink_title": "Drinks",
     "drink_1": "Spotted Cow",
     "drink_1_price": "$5.99",
