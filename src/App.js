@@ -6,12 +6,21 @@ import Cart from './components/Cart';
 
 function App() {
   return (
-    <CartProvider>
-    <div className="App">
-      <Menu />
-      <Cart />
+    <div>
+      <CartProvider>
+      <div className="App">
+        <Menu />
+        <Cart />
+      </div>
+      </CartProvider>
+      <div className='tip-julia'>
+        Loved the digital menu? 💓 
+        <br />
+        <a href="venmo.com/juliabae">
+          Feel free to drop Julia a tip for creating this!
+        </a>
+      </div>
     </div>
-    </CartProvider>
   );
 }
 

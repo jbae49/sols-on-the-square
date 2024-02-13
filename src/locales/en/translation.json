@@ -1,5 +1,6 @@
 {
     "google_review_promotion": "Participate in a Google review and get 6 pieces of fried or steamed dumplings for free.",
+    "guide-to-cart": "Add dishes you want to cart and show the cart to the server.",
     "menu_title": "Menu",
     "select_option": "Select Option (Required)",
     "appetizer_title": "Appetizers",
@@ -72,7 +73,7 @@
     "vegetarian_title": "Vegetarian Options",
     "vegetarian_note": "GF: Tofu Bibimbap without Gosari is the only option at our restaurant.",
     "vegetarian_1": "Tofu Bibimbap",
-    "vegetarian_1_description": "Mixed Rice with Veggies, Tofu, and (Egg - Optional)",
+    "vegetarian_1_description": "Tofu Bibimbop without Gosari is the only option if you're gluten free!",
     "vegetarian_1_price": "$15.99",
     "vegetarian_2": "Japanese Style Veggie Udon",
     "vegetarian_2_price": "$15.99",

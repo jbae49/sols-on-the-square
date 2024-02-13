@@ -77,6 +77,9 @@ function Menu() {
             <div className='review-promotion'>
                 <p>{t('google_review_promotion')} <a href="https://www.google.com/maps/place/Sol's+on+the+Square/@43.0766456,-89.3834015,17z/data=!4m8!3m7!1s0x88065340a318543f:0xf9729a16caad16cb!8m2!3d43.0766456!4d-89.3834015!9m1!1b1!16s%2Fg%2F1yg6ngmwn?entry=ttu" target="_blank" rel="noopener noreferrer">Click here</a></p>
             </div>
+            <div className='guide-to-cart'>
+                <p>{t('guide-to-cart')}</p>
+            </div>
             <h1>{t('menu_title')}</h1>
 
             <div className='section-links'>
@@ -97,9 +100,9 @@ function Menu() {
                         {/* Handling the vegetarian section similar to other sections */}
                         {section === 'vegetarian' ? (
                             <>
-                                <div className='warning-box'>
+                                {/* <div className='warning-box'>
                                     <p>{t('vegetarian_note')}</p>
-                                </div>
+                                </div> */}
                                 {Array.from({ length: 4 }, (_, i) => i + 1).map(num => {
                                     const key = `vegetarian_${num}`;
                                     const itemName = t(`${key}`);
@@ -164,6 +167,7 @@ function Menu() {
                     </div>
                 ))}
             </div>
+          
         </div>
     );
 }
