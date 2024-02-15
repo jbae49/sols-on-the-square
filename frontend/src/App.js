@@ -8,15 +8,15 @@ function App() {
   return (
     <div>
       <CartProvider>
-      <div className="App">
-        <Menu />
-        <Cart />
-      </div>
+        <div className="App">
+          <Menu />
+          <Cart />
+        </div>
       </CartProvider>
       <div className='tip-julia'>
-        Loved the digital menu? 💓 
+        Loved the digital menu? 💓
         <br />
-        <a href="venmo.com/juliabae">
+        <a href="https://account.venmo.com/u/juliabae">
           Feel free to drop Julia a tip for creating this!
         </a>
       </div>

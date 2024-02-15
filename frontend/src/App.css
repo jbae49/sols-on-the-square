@@ -34,7 +34,7 @@
   margin: 20px 5px;
   font-size: 16px;
   color: blue;
-  font-family: monospace;
+  /* font-family: monospace; */
 }
 @keyframes App-logo-spin {
   from {
