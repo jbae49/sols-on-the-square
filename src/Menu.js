@@ -30,6 +30,27 @@ function Menu() {
         setNotification(prev => ({ ...prev, [key]: `${itemToAdd.description} added to cart!` }));
         setTimeout(() => setNotification(prev => ({ ...prev, [key]: undefined })), 3000);
     };
+
+    const handleLanguageChange = (language) => {
+        i18n.changeLanguage(language);
+
+        // send the selected language to backend
+        // fetch('http://localhost:5000/select-language', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify({ language }),
+        // })
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         console.log('Language selection saved: ', data);
+        //     })
+        //     .catch((error) => {
+        //         console.error('Error:', error);
+        //     });
+    };
+
     const handleOptionChange = (key, value) => {
         setSelectedOptions(prev => ({ ...prev, [key]: value }));
     };
@@ -67,11 +88,11 @@ function Menu() {
 
     return (
         <div>
-            <img src="/sols-logo.png" className='logo-image'></img>
+            <img src="/sols-logo.png" className='logo-image' alt="Sols Logo"></img>
             <div className='language-buttons'>
-                <button className='language-button' onClick={() => i18n.changeLanguage('en')}>English</button>
-                <button className='language-button' onClick={() => i18n.changeLanguage('ko')}>한국어</button>
-                <button className='language-button' onClick={() => i18n.changeLanguage('ch')}>中文</button>
+                <button className='language-button' onClick={() => handleLanguageChange('en')}>English</button>
+                <button className='language-button' onClick={() => handleLanguageChange('ko')}>한국어</button>
+                <button className='language-button' onClick={() => handleLanguageChange('ch')}>中文</button>
             </div>
             {/* Promotion Message */}
             <div className='review-promotion'>
@@ -167,7 +188,7 @@ function Menu() {
                     </div>
                 ))}
             </div>
-          
+
         </div>
     );
 }
