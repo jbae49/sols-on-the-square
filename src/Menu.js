@@ -34,21 +34,6 @@ function Menu() {
     const handleLanguageChange = (language) => {
         i18n.changeLanguage(language);
 
-        // send the selected language to backend
-        // fetch('http://localhost:5000/select-language', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify({ language }),
-        // })
-        //     .then(response => response.json())
-        //     .then(data => {
-        //         console.log('Language selection saved: ', data);
-        //     })
-        //     .catch((error) => {
-        //         console.error('Error:', error);
-        //     });
     };
 
     const handleOptionChange = (key, value) => {

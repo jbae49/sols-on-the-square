@@ -1,48 +1,46 @@
-import React, { useEffect } from 'react';
+// App.js
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import './App.css';
-import Menu from './Menu';
-import { CartProvider } from './contexts/CartContext';
-import Cart from './components/Cart';
-import FingerprintJS from '@fingerprintjs/fingerprintjs'
+import Menu from './Menu'; // Ensure you have this component created as per your setup
+import { CartProvider } from './contexts/CartContext'; // Ensure this context is set up
+import Cart from './components/Cart'; // Ensure you have this component created as per your setup
+import LanguageSelectionModal from './components/LanguageSelectionModal'; // Ensure you've created this component
+import { LanguageProvider } from './contexts/LanguageContext';
 
 function App() {
-  // useEffect(() => {
-  //   // Initialize FingerprintJS agent
-  //   const loadFingerprint = async () => {
-  //     // Get the FingerprintJS agent
-  //     const fp = await FingerprintJS.load();
+  const handleLanguageSelected = (lang) => {
+    axios.post('http://127.0.0.1:5000/api/save-language', { language: lang })
+      .then(response => console.log(response.data))
+      .catch(error => console.error('Error posting language selection:', error));
+  };
 
-  //     // Get the visitor's identifier
-  //     const result = await fp.get();
-  //     const visitorId = result.visitorId;
+  useEffect(() => {
+    const trackVisit = async () => {
+      try {
+        await axios.post('http://127.0.0.1:5000/track-visit', {});
+        console.log('Visit tracked successfully.');
+      } catch (error) {
+        console.error('Error tracking visit:', error);
+      }
+    };
 
-  //     // Send the fingerprint to backend
-  //     fetch('http://localhost:5000/record-visit', {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //       body: JSON.stringify({ fingerprint: visitorId }),
-  //     })
-  //       .then(response => response.json())
-  //       .then(data => console.log(data.message))
-  //       .catch(error => console.error('Error recording visit with fingerprint:', error))
-  //   };
-  //   loadFingerprint();
-  // }, []);
-
+    trackVisit();
+  }, []);
 
   return (
     <div>
-      <CartProvider>
-        <div className="App">
-          <Menu />
-          <Cart />
-        </div>
-      </CartProvider>
+      <LanguageProvider>
+        <CartProvider>
+          <LanguageSelectionModal onLanguageSelected={handleLanguageSelected} />
+          <div className="App">
+            <Menu />
+            <Cart />
+          </div>
+        </CartProvider>
+      </LanguageProvider>
       <div className='tip-julia'>
-        Loved the digital menu? 💓
-        <br />
+        Loved the digital menu? 💓<br />
         <a href="https://account.venmo.com/u/juliabae">
           Feel free to drop Julia a tip for creating this!
         </a>
