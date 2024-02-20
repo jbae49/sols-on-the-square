@@ -11,6 +11,13 @@ import { LanguageProvider } from './contexts/LanguageContext';
 function App() {
   const [sessionId, setSessionId] = useState(null); // State to store the session ID
 
+  // Define the function to handle clicks on the Venmo link within the App component
+  const handleVenmoClick = () => {
+    axios.post('http://127.0.0.1:5000/api/track-venmo-click', {})
+      .then(response => console.log('Venmo click tracked successfully.'))
+      .catch(error => console.error('Error tracking Venmo click:', error));
+  };
+
   const handleLanguageSelected = (lang) => {
     axios.post('http://127.0.0.1:5000/api/save-language', { language: lang })
       .then(response => console.log(response.data))
@@ -70,7 +77,7 @@ function App() {
       </LanguageProvider>
       <div className='tip-julia'>
         Loved the digital menu? 💓<br />
-        <a href="https://account.venmo.com/u/juliabae">
+        <a href="https://account.venmo.com/u/juliabae" onClick={handleVenmoClick} target="_blank" rel="noopener noreferrer">
           Feel free to drop Julia a tip for creating this!
         </a>
       </div>
