@@ -18,8 +18,18 @@
         "치즈 없이": "$14.99"
     },
     "appetizer_4": "A4. 한국식 프라이드치킨",
-    "appetizer_4_description": "사이드 소스 또는 절인 소스: + $2.00",
-    "appetizer_4_price": "$16.99",
+    "appetizer_4_description": "데리야키 소스",
+    "appetizer_4_options": [
+        "소스 없음",
+        "소스 따로",
+        "양념치킨"
+    ],
+"appetizer_4_price": {
+    "소스 없음": "$16.99",
+    "소스 따로": "$18.99",
+    "양념치킨": "$18.99"
+    },
+
     "soup_title": "수프",
     "soup_1": "S1. 갈비탕",
     "soup_1_description": "인삼을 넣은 일반 쇠고기 갈비탕: + $2.00",

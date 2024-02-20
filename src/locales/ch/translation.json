@@ -18,8 +18,18 @@
         "不加奶酪": "$14.99"
     },
     "appetizer_4": "A4. 韩式炸鸡",
-    "appetizer_4_description": "酱汁另放或腌制：+$2.00",
-    "appetizer_4_price": "$16.99",
+    "appetizer_4_description": "可选：甜辣酱",
+    "appetizer_4_options": [
+        "无酱",
+        "酱汁另放",
+        "腌制"
+    ],
+    "appetizer_4_price": {
+        "无酱": "$16.99",
+        "酱汁另放": "$18.99",
+        "腌制": "$18.99"
+    },
+
     "soup_title": "汤",
     "soup_1": "S1. 牛肋骨汤",
     "soup_1_description": "常规牛肋骨汤，加人参：+$2.00",

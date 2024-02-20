@@ -64,6 +64,21 @@ function Menu() {
         e.target.style.display = 'none';
     };
 
+    // Function to handle clicks on the Google review promotion link
+    const handlePromotionClick = () => {
+        // Example payload; you can include more data as needed
+        const payload = {
+            event: 'Google Review Promotion Click',
+            timestamp: new Date().toISOString(),
+            // Add any other relevant data here
+        };
+
+        // Send the event data to the Flask backend
+        axios.post('http://127.0.0.1:5000/api/track-promotion-click', payload)
+            .then(response => console.log('Promotion click tracked successfully.'))
+            .catch(error => console.error('Error tracking promotion click:', error));
+    };
+
     const renderOptionsDropdown = (itemKey) => {
         const optionsKey = `${itemKey}_options`;
         const priceKey = `${itemKey}_price`;
@@ -101,7 +116,10 @@ function Menu() {
             </div>
             {/* Promotion Message */}
             <div className='review-promotion'>
-                <p>{t('google_review_promotion')} <a href="https://www.google.com/maps/place/Sol's+on+the+Square/@43.0766456,-89.3834015,17z/data=!4m8!3m7!1s0x88065340a318543f:0xf9729a16caad16cb!8m2!3d43.0766456!4d-89.3834015!9m1!1b1!16s%2Fg%2F1yg6ngmwn?entry=ttu" target="_blank" rel="noopener noreferrer">Click here</a></p>
+                <p>{t('google_review_promotion')} <a href="https://www.google.com/maps/place/Sol's+on+the+Square/@43.0766456,-89.3834015,17z/data=!4m8!3m7!1s0x88065340a318543f:0xf9729a16caad16cb!8m2!3d43.0766456!4d-89.3834015!9m1!1b1!16s%2Fg%2F1yg6ngmwn?entry=ttu" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   onClick={handlePromotionClick}>Click here</a></p>
             </div>
             <div className='guide-to-cart'>
                 <p>{t('guide-to-cart')}</p>
