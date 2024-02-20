@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import './i18n';
 import './Menu.css';
 import { useCart } from './contexts/CartContext';
-
+import axios from 'axios';
 
 function Menu() {
     const { t, i18n } = useTranslation();
@@ -14,22 +14,42 @@ function Menu() {
     const [selectedOptions, setSelectedOptions] = useState({}); // New state to handle selected options
 
     const addToCart = (item, key, option = null) => {
-        let itemToAdd = { ...item }; // Use `let` if you plan to reassign
-
+        // Calculate the item price based on whether an option was selected
+        let itemPrice = item.price;
+        let description = item.description;
+        
         if (option) {
-            // It's safe to modify properties of `itemToAdd` here because we're not reassigning it
             const optionPrice = parseFloat(item.price[option].replace(/^\$/, ''));
-            itemToAdd.description = `${item.description} - ${option}`; // This is fine
-            itemToAdd.price = optionPrice; // This is also fine
+            description += ` - ${option}`; // Append option to description if there is one
+            itemPrice = optionPrice;
         } else {
-            // Also ensure the default item price is a number if not already
-            itemToAdd.price = parseFloat(item.price.replace(/^\$/, ''));
+            itemPrice = parseFloat(item.price.replace(/^\$/, ''));
         }
 
-        dispatch({ type: 'ADD_ITEM', payload: itemToAdd });
-        setNotification(prev => ({ ...prev, [key]: `${itemToAdd.description} added to cart!` }));
-        setTimeout(() => setNotification(prev => ({ ...prev, [key]: undefined })), 3000);
+        // Prepare the data to be sent to the backend
+        const cartItemData = {
+            itemName: description, // Use the item's description as its name
+            quantity: 1, // This example hardcodes quantity to 1, adjust as necessary
+        };
+
+        // Use axios to send a POST request to your Flask backend
+        axios.post('http://127.0.0.1:5000/api/add-to-cart', cartItemData)
+            .then(response => {
+                // Update local state to reflect the item addition
+                dispatch({ type: 'ADD_ITEM', payload: { ...item, price: itemPrice, description } });
+                setNotification(prev => ({ ...prev, [key]: `${description} added to cart!` }));
+
+                // Clear the notification after 3 seconds
+                setTimeout(() => setNotification(prev => ({ ...prev, [key]: undefined })), 3000);
+                
+                console.log(response.data.message); // Success message from the server
+            })
+            .catch(error => {
+                console.error('Error adding item to cart:', error);
+                // Handle error (e.g., show an error message)
+            });
     };
+
 
     const handleLanguageChange = (language) => {
         i18n.changeLanguage(language);

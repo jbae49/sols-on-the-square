@@ -4,11 +4,11 @@
     "menu_title": "Menu",
     "select_option": "Select Option (Required)",
     "appetizer_title": "Appetizers",
-    "appetizer_1": "Kimchi Pancake",
+    "appetizer_1": "A1. Kimchi Pancake",
     "appetizer_1_price": "$13.99",
-    "appetizer_2": "Seafood Pancake",
+    "appetizer_2": "A2. Seafood Pancake",
     "appetizer_2_price": "$14.99",
-    "appetizer_3": "Tteokbokki",
+    "appetizer_3": "A3. Tteokbokki",
     "appetizer_3_description": "Optional: Cheese",
     "appetizer_3_options": [
         "With Cheese",
@@ -18,7 +18,7 @@
         "With Cheese": "$16.99",
         "Without Cheese": "$14.99"
     },
-    "appetizer_4": "Korean Fried Chicken",
+    "appetizer_4": "A4. Korean Fried Chicken",
     "appetizer_4_description": "Optional: Sweet & Spicy Sauce",
     "appetizer_4_options": [
         "Without Sauce",
@@ -31,7 +31,7 @@
         "Marinated": "$18.99"
     },
     "soup_title": "Soups",
-    "soup_1": "Galbi Tang",
+    "soup_1": "S1. Galbi Tang",
     "soup_1_description": "Regular Beef Short Rib Soup",
     "soup_1_options": [
         "Regular",
@@ -41,12 +41,12 @@
         "Regular": "$22.99",
         "With Ginseng": "$24.99"
     },
-    "soup_2": "Soft Tofu Soup",
+    "soup_2": "S2. Soft Tofu Soup",
     "soup_2_price": "$16.99",
-    "soup_3": "Spicy Kimchi Pork Soup",
+    "soup_3": "S3. Spicy Kimchi Pork Soup",
     "soup_3_price": "$15.99",
     "rice_title": "Rice",
-    "rice_1": "Bibimbop",
+    "rice_1": "R1. Bibimbop",
     "rice_1_description": "Mixed Rice with Veggies, Meat & Egg",
     "rice_1_options": [
         "Beef",
@@ -64,10 +64,10 @@
         "Tofu": "$15.99",
         "Fish Egg": "$15.99"
     },
-    "rice_2": "Ojingeo Deopbap",
+    "rice_2": "R2. Ojingeo Deopbap",
     "rice_2_description": "Rice Bowl with Squid",
     "rice_2_price": "$15.99",
-    "rice_3": "Curry Rice",
+    "rice_3": "R3. Curry Rice",
     "rice_3_description": "Choose from Beef or Chicken",
     "rice_3_options": [
         "Beef Curry",
@@ -78,19 +78,21 @@
         "Chicken Curry": "$15.99"
     },
     "drink_title": "Drinks",
-    "drink_1": "Spotted Cow",
+    "drink_1": "D1. Spotted Cow",
     "drink_1_price": "$5.99",
-    "drink_2": "Jinro Soju",
+    "drink_2": "D2. Jinro Soju",
     "drink_2_price": "$6.99",
     "vegetarian_title": "Vegetarian Options",
     "vegetarian_note": "GF: Tofu Bibimbap without Gosari is the only option at our restaurant.",
-    "vegetarian_1": "Tofu Bibimbap",
+    "vegetarian_1": "V1. Tofu Bibimbap",
     "vegetarian_1_description": "Tofu Bibimbop without Gosari is the only option if you're gluten free!",
     "vegetarian_1_price": "$15.99",
-    "vegetarian_2": "Japanese Style Veggie Udon",
+    "vegetarian_2": "V2. Japanese Style Veggie Udon",
     "vegetarian_2_price": "$15.99",
-    "vegetarian_3": "Tofu Sweet Glass Noodles",
+    "vegetarian_3": "V3. Tofu Sweet Glass Noodles",
     "vegetarian_3_price": "$16.99",
-    "vegetarian_4": "Veggie Kalguksoo",
+    "vegetarian_4": "V4. Veggie Kalguksoo",
     "vegetarian_4_price": "$16.99"
 }
+
+
