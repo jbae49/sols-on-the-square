@@ -8,16 +8,28 @@ import axios from 'axios';
 function Menu() {
     const { t, i18n } = useTranslation();
     const { dispatch } = useCart();
-    const sections = ['appetizer', 'soup', 'rice', 'drink', 'vegetarian'];
+    const sections = ['appetizer', 'soup', 'special_big_soup', 'bap', 'meat', 'noodles', 'lunch_special', 'beverage', 'vegetarian'];
 
     const [notification, setNotification] = useState({});
     const [selectedOptions, setSelectedOptions] = useState({}); // New state to handle selected options
+
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        });
+    };
+
+    const scrollToCart = () => {
+        // Assuming the Cart component has an ID you can target
+        document.getElementById('cart').scrollIntoView({ behavior: 'smooth' });
+    };
 
     const addToCart = (item, key, option = null) => {
         // Calculate the item price based on whether an option was selected
         let itemPrice = item.price;
         let description = item.description;
-        
+
         if (option) {
             const optionPrice = parseFloat((item.price[option] + '').replace(/^\$/, ''));
             description += ` - ${option}`; // Append option to description if there is one
@@ -41,7 +53,7 @@ function Menu() {
 
                 // Clear the notification after 3 seconds
                 setTimeout(() => setNotification(prev => ({ ...prev, [key]: undefined })), 3000);
-                
+
                 console.log(response.data.message); // Success message from the server
             })
             .catch(error => {
@@ -116,10 +128,10 @@ function Menu() {
             </div>
             {/* Promotion Message */}
             <div className='review-promotion'>
-                <p>{t('google_review_promotion')} <a href="https://www.google.com/maps/place/Sol's+on+the+Square/@43.0766456,-89.3834015,17z/data=!4m8!3m7!1s0x88065340a318543f:0xf9729a16caad16cb!8m2!3d43.0766456!4d-89.3834015!9m1!1b1!16s%2Fg%2F1yg6ngmwn?entry=ttu" 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   onClick={handlePromotionClick}>Click here</a></p>
+                <p>{t('google_review_promotion')} <a href="https://www.google.com/maps/place/Sol's+on+the+Square/@43.0766456,-89.3834015,17z/data=!4m8!3m7!1s0x88065340a318543f:0xf9729a16caad16cb!8m2!3d43.0766456!4d-89.3834015!9m1!1b1!16s%2Fg%2F1yg6ngmwn?entry=ttu"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={handlePromotionClick}>Click here</a></p>
             </div>
             <div className='guide-to-cart'>
                 <p>{t('guide-to-cart')}</p>
@@ -135,6 +147,8 @@ function Menu() {
                     </button>
                 ))}
             </div>
+            {/* Go to top and Go to Cart buttons */}
+            {/* <button className="view-cart-btn" onClick={scrollToCart}>Cart</button> */}
 
             <div className='menu-container'>
                 {sections.map((section, sectionIndex) => (
@@ -178,7 +192,7 @@ function Menu() {
                                     );
                                 })}
                             </>
-                        ) : (Array.from({ length: 10 }, (_, i) => i + 1).map(itemNumber => {
+                        ) : (Array.from({ length: 15 }, (_, i) => i + 1).map(itemNumber => {
                             const key = `${section}_${itemNumber}`;
                             const itemName = t(key, { defaultValue: '' });
                             if (!itemName) return null; // Skip rendering if item name is not found
@@ -211,6 +225,8 @@ function Menu() {
                     </div>
                 ))}
             </div>
+            {/* <button className="go-to-top-btn" onClick={scrollToTop}>Go To Top</button>
+            <button className="view-cart-btn" onClick={scrollToCart}>Go To Cart</button> */}
 
         </div>
     );

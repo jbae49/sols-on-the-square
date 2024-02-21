@@ -7,6 +7,7 @@ import { CartProvider } from './contexts/CartContext'; // Ensure this context is
 import Cart from './components/Cart'; // Ensure you have this component created as per your setup
 import LanguageSelectionModal from './components/LanguageSelectionModal'; // Ensure you've created this component
 import { LanguageProvider } from './contexts/LanguageContext';
+import ScrollButton from './components/ScrollButton';
 
 function App() {
   const [sessionId, setSessionId] = useState(null); // State to store the session ID
@@ -71,12 +72,14 @@ function App() {
           <LanguageSelectionModal onLanguageSelected={handleLanguageSelected} />
           <div className="App">
             <Menu />
+
             <Cart />
+            <ScrollButton />
           </div>
         </CartProvider>
       </LanguageProvider>
       <div className='tip-julia'>
-         💓<br />
+        💓<br />
         <a href="https://account.venmo.com/u/juliabae" onClick={handleVenmoClick} target="_blank" rel="noopener noreferrer">
           Tip Julia for creating this digital webpage!
         </a>
