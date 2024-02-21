@@ -76,9 +76,9 @@ function App() {
         </CartProvider>
       </LanguageProvider>
       <div className='tip-julia'>
-        Loved the digital menu? 💓<br />
+         💓<br />
         <a href="https://account.venmo.com/u/juliabae" onClick={handleVenmoClick} target="_blank" rel="noopener noreferrer">
-          Feel free to drop Julia a tip for creating this!
+          Tip Julia for creating this digital webpage!
         </a>
       </div>
     </div>
