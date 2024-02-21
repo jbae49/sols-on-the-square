@@ -19,7 +19,7 @@ function Menu() {
         let description = item.description;
         
         if (option) {
-            const optionPrice = parseFloat(item.price[option].replace(/^\$/, ''));
+            const optionPrice = parseFloat((item.price[option] + '').replace(/^\$/, ''));
             description += ` - ${option}`; // Append option to description if there is one
             itemPrice = optionPrice;
         } else {
