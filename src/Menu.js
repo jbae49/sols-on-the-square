@@ -4,11 +4,12 @@ import './i18n';
 import './Menu.css';
 import { useCart } from './contexts/CartContext';
 import axios from 'axios';
+import Select from 'react-select';
 
 function Menu() {
     const { t, i18n } = useTranslation();
     const { dispatch } = useCart();
-    const sections = ['appetizer', 'soup', 'special_big_soup', 'bap', 'meat', 'noodles', 'lunch_special', 'beverage', 'vegetarian'];
+    const sections = ['appetizer', 'soup', 'special_big_soup', 'bap', 'meat', 'noodles', 'lunch_special', 'beverage', 'alcohol', 'vegetarian'];
 
     const [notification, setNotification] = useState({});
     const [selectedOptions, setSelectedOptions] = useState({}); // New state to handle selected options
@@ -20,10 +21,7 @@ function Menu() {
         });
     };
 
-    const scrollToCart = () => {
-        // Assuming the Cart component has an ID you can target
-        document.getElementById('cart').scrollIntoView({ behavior: 'smooth' });
-    };
+
 
     const addToCart = (item, key, option = null) => {
         // Calculate the item price based on whether an option was selected
@@ -50,7 +48,7 @@ function Menu() {
                 // Update local state to reflect the item addition
                 dispatch({ type: 'ADD_ITEM', payload: { ...item, price: itemPrice, description } });
                 setNotification(prev => ({ ...prev, [key]: `${description} added to cart!` }));
-
+                // setNotification(prev => ({ ...prev, [key]: `Added to cart!` }));
                 // Clear the notification after 3 seconds
                 setTimeout(() => setNotification(prev => ({ ...prev, [key]: undefined })), 3000);
 
@@ -68,9 +66,6 @@ function Menu() {
 
     };
 
-    const handleOptionChange = (key, value) => {
-        setSelectedOptions(prev => ({ ...prev, [key]: value }));
-    };
 
     const handleImageError = (e) => {
         e.target.style.display = 'none';
@@ -91,6 +86,14 @@ function Menu() {
             .catch(error => console.error('Error tracking promotion click:', error));
     };
 
+    const handleOptionChange = (itemKey, selectedOption) => {
+        // Assuming setSelectedOptions updates the state to reflect the selected option
+        setSelectedOptions(prevOptions => ({
+            ...prevOptions,
+            [itemKey]: selectedOption.value,
+        }));
+    };
+
     const renderOptionsDropdown = (itemKey) => {
         const optionsKey = `${itemKey}_options`;
         const priceKey = `${itemKey}_price`;
@@ -98,18 +101,29 @@ function Menu() {
         const prices = t(priceKey, { returnObjects: true });
 
         if (!Array.isArray(options) || options.length === 0) {
-            return null; // No options available or translation not returning an array
+            return null; // No options available
         }
 
+        const transformedOptions = options.map(option => ({
+            value: option,
+            label: `${option} - ${prices[option]}`,
+        }));
+
         return (
-            <select className="custom-select" value={selectedOptions[itemKey] || ''} onChange={(e) => handleOptionChange(itemKey, e.target.value)}>
-                <option value="">{t('select_option')}</option>
-                {options.map(option => (
-                    <option key={option} value={option}>{`${option} - ${prices[option]}`}</option>
-                ))}
-            </select>
+            <div className="select-wrapper" style={{ display: 'flex', justifyContent: 'center' }}>
+                <Select
+                    classNamePrefix="custom-select"
+                    value={transformedOptions.find(option => option.value === selectedOptions[itemKey])}
+                    onChange={(selectedOption) => handleOptionChange(itemKey, selectedOption)}
+                    options={transformedOptions}
+                    isSearchable={false} // Prevents user from typing in the dropdown box
+                    styles={{ container: (base) => ({ ...base, width: '250px', maxWidth: '90%' }) }}
+                />
+            </div>
         );
     };
+
+
 
 
     //   const dishes = [
@@ -117,6 +131,9 @@ function Menu() {
     //     { key: 'dish_2', image: '/galbitang.jpg', description: 'dish_2_description' }
     //   ];
 
+    const scrollToCart = () => {
+        document.getElementById('cart').scrollIntoView({ behavior: 'smooth' });
+    };
 
     return (
         <div>
@@ -136,6 +153,9 @@ function Menu() {
             <div className='guide-to-cart'>
                 <p>{t('guide-to-cart')}</p>
             </div>
+            <button className="scroll-to-cart-btn" onClick={scrollToCart}>
+                Go To Cart 🍱
+            </button>
             <h1>{t('menu_title')}</h1>
 
             <div className='section-links'>
@@ -184,10 +204,13 @@ function Menu() {
                                                 <p>{itemDescription}</p>
                                                 <p>{itemPrice}</p>
                                             </div>
-                                            <button className='add-to-cart-button' onClick={() => addToCart(item, key, selectedOptions[key])}>
-                                                Add to Cart
-                                            </button>
-                                            {notification[key] && <span className='cart-notification'>{notification[key]}</span>}
+                                            <div className="button-notification-container" style={{ textAlign: 'center' }}> {/* Ensure this div wraps both button and notification */}
+                                                <button className='add-to-cart-button' onClick={() => addToCart(item, key, selectedOptions[key])}>
+                                                    Add to Cart
+                                                </button>
+                                                {/* Conditionally render notification below the button */}
+                                                <div className='cart-notification'>{notification[key] ? notification[key] : ''}</div>
+                                            </div>
                                         </div>
                                     );
                                 })}

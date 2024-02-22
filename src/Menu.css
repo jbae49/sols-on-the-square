@@ -13,38 +13,7 @@ h1, h2, h3, .section-button {
     font-family: 'Merriweather', serif;
 }
 
-.menu-container, .menu-item {
-    margin-bottom: var(--space-md); /* Medium spacing, e.g., 16px */
-  }
-  
-.menu-text h3, .menu-text p {
-    margin: var(--space-xs) 0; /* Small spacing, e.g., 8px */
-  }
-  
 
-.go-to-top-btn, .view-cart-btn {
-position: fixed;
-bottom: 20px; /* Adjust as needed */
-margin: 0 15px;
-padding: 10px;
-border-radius: 50%;
-font-size: 16px;
-cursor: pointer;
-z-index: 1000;
-}
-
-.go-to-top-btn {
-right: 80px; /* Adjust based on your layout */
-background-color: #f00; /* Your choice of color */
-color: #fff;
-}
-
-.view-cart-btn {
-right: 20px; /* Adjust based on your layout */
-background-color: #00f; /* Your choice of color */
-color: #fff;
-}
-  
 
 .guide-to-cart {
     font-weight: normal;
@@ -86,10 +55,12 @@ color: #fff;
 
 
 
-.menu-text h3, .menu-text p {
+.menu-text {
     text-align: center;
-    margin: 5px 0;
+    margin: 5px 10px;
+    font-size: 14px;
     font-family: 'Open Sans';
+    margin-bottom: 0px;
     /* font-family: 'CustomFont', sans-serif; */
 }
 
@@ -104,6 +75,7 @@ color: #fff;
     /* font-family: monospace; */
     /* font-family: 'CustomFont', sans-serif; */
 }
+
 
 .language-buttons button {
     appearance: none;
@@ -165,7 +137,33 @@ color: #fff;
   transform: scale(1.05) rotate(-1deg);
 }
 
-  
+.scroll-to-cart-btn {
+    appearance: none;
+    background-color: orange;
+    border: 1px solid rgba(27, 31, 35, .15);
+    border-radius: 6px;
+    box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 20px;
+    padding: 6px 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    white-space: nowrap;
+    /* Additional styles for centering or other adjustments */
+}
+
+
 
 .warning-box {
     background-color: #fff4e5;
@@ -193,10 +191,13 @@ color: #fff;
 }
 
 .cart-notification {
-    margin-left: 10px;
-    color: #D08770;
-    font-weight: bold;
-}
+    color: #e97042; /* Example color */
+    font-weight: normal;
+    font-size: 13px;
+    margin-top: 3px; /* Adjust as needed to create space between the button and the notification */
+    text-align: center; /* This ensures the text is centered under the button */
+  }
+  
 
 .add-to-cart-button {
     
@@ -214,17 +215,52 @@ color: #fff;
 .custom-select {
     background-color: #f0f0f0; /* Light grey background */
     border: 1px solid #ccc; /* Light grey border */
-    padding: 3px; /* Spacing inside the dropdown */
+    padding: 2px; /* Spacing inside the dropdown */
     margin-top: 5px; /* Space above the dropdown */
     margin-bottom: 5px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     font-size: 14px; /* Text size */
     border-radius: 4px; /* Rounded corners */
     cursor: pointer; /* Change cursor to indicate it's clickable */
-  }
+}
   
-  .custom-select:hover,
-  .custom-select:focus {
-    border-color: #007bff; /* Highlight color when hovered or focused */
-    outline: none; /* Remove default focus outline */
-  }
-  
+/* .dropdown-container {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    display: flex;
+    
+    align-items: center;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+} */
+
+.custom-select__control {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    /* React Select already applies padding and font size, but you can adjust them here if needed */
+    border-radius: 2px;
+    cursor: pointer;
+    width: 250px; /* Set a fixed width */
+    /* or use max-width for responsive width control */
+    max-width: 90%; /* Example: Makes the dropdown responsive but not wider than 90% of its container */
+    /* Retain other styles */
+}
+
+.custom-select__menu {
+    /* Style the dropdown menu */
+}
+
+.custom-select__option {
+    /* Style individual options */
+}
+
+/* Add more as needed, targeting other parts of the React Select */
+
+.select-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%; /* Ensures the wrapper takes full width of its parent */
+}

@@ -72,8 +72,9 @@ function App() {
           <LanguageSelectionModal onLanguageSelected={handleLanguageSelected} />
           <div className="App">
             <Menu />
-
-            <Cart />
+            <div id='cart'>
+              <Cart />
+            </div>
             <ScrollButton />
           </div>
         </CartProvider>
