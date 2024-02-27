@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import './i18n';
 import './Menu.css';
@@ -21,6 +21,10 @@ function Menu() {
         });
     };
 
+    const [baseImageUrl, setBaseImageUrl] = useState('');
+    useEffect(() => {
+        setBaseImageUrl('https://jbae49-mys3.s3.us-east-2.amazonaws.com/public')
+    }, []);
 
 
     const addToCart = (item, key, option = null) => {
@@ -43,7 +47,7 @@ function Menu() {
         };
 
         // Use axios to send a POST request to your Flask backend
-        axios.post('http://127.0.0.1:5000/api/add-to-cart', cartItemData)
+        axios.post('http://ec2-52-14-182-61.us-east-2.compute.amazonaws.com:5001/api/add-to-cart', cartItemData)
             .then(response => {
                 // Update local state to reflect the item addition
                 dispatch({ type: 'ADD_ITEM', payload: { ...item, price: itemPrice, description } });
@@ -81,7 +85,8 @@ function Menu() {
         };
 
         // Send the event data to the Flask backend
-        axios.post('http://127.0.0.1:5000/api/track-promotion-click', payload)
+
+        axios.post('http://ec2-52-14-182-61.us-east-2.compute.amazonaws.com:5001/api/track-promotion-click', payload)
             .then(response => console.log('Promotion click tracked successfully.'))
             .catch(error => console.error('Error tracking promotion click:', error));
     };
@@ -137,7 +142,7 @@ function Menu() {
 
     return (
         <div>
-            <img src="/sols-logo.png" className='logo-image' alt="Sols Logo"></img>
+            <img src={`${baseImageUrl}/sols-logo.png`} className='logo-image' alt="Sols Logo"></img>
             <div className='language-buttons'>
                 <button className='language-button' onClick={() => handleLanguageChange('en')}>English</button>
                 <button className='language-button' onClick={() => handleLanguageChange('ko')}>한국어</button>
@@ -229,7 +234,8 @@ function Menu() {
                             };
                             return (
                                 <div key={key} className='menu-item'>
-                                    <img src={`/${key}.jpg`} alt={itemName} className='menu-image' onError={handleImageError} />
+
+                                    <img src={`${baseImageUrl}/${key}.jpg`} alt={itemName} className='menu-image' onError={handleImageError} />
                                     <div className='menu-text'>
                                         <h3>{itemName}</h3>
                                         <p>{t(`${key}_description`, { defaultValue: '' })}</p>

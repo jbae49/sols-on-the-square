@@ -10,7 +10,7 @@ function LanguageSelectionModal() {
 
     useEffect(() => {
         if (!showModal) {
-            axios.post('http://127.0.0.1:5000/api/save-language', { language: selectedLanguage })
+            axios.post('http://ec2-52-14-182-61.us-east-2.compute.amazonaws.com:5001/api/save-language', { language: selectedLanguage })
                 .then(response => console.log(response.data))
                 .catch(error => console.error('Error posting language selection:', error));
             // Apply the language change using the context method
