@@ -73,16 +73,17 @@ function App() {
           <div className="App">
             <Menu />
             <footer className="footer">
-              <div className='tip-julia'>
-                ❤️<br />
-                <a href="https://account.venmo.com/u/juliabae" onClick={handleVenmoClick} target="_blank" rel="noopener noreferrer">
-                  Tip Julia for creating this digital webpage!
-                </a>
 
-              </div>
             </footer>
             <div id='cart'>
               <Cart />
+            </div>
+            <div className='tip-julia'>
+
+              <a href="https://account.venmo.com/u/juliabae" onClick={handleVenmoClick} target="_blank" rel="noopener noreferrer">
+                Tip Julia for creating this digital webpage ❤️
+              </a>
+
             </div>
             <ScrollButton />
           </div>
