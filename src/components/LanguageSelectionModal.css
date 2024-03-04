@@ -29,3 +29,12 @@ button {
     margin: 10px;
     padding: 10px;
 }
+
+.language-button {
+    margin: 10px;
+    padding: 10px;
+    font-size: 20px; /* Increase font size */
+    /* You can add more styling here as needed */
+    font-family: 'Noto Sans';
+}
+

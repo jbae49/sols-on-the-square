@@ -29,9 +29,9 @@ function LanguageSelectionModal() {
         <div className="modal-overlay">
             <div className="modal-content">
                 <h2>Select Language</h2>
-                <button onClick={() => selectLanguage('en')}>English</button>
-                <button onClick={() => selectLanguage('ko')}>한국어</button>
-                <button onClick={() => selectLanguage('ch')}>中文</button>
+                <button className="language-button" onClick={() => selectLanguage('en')}>English</button>
+                <button className="language-button" onClick={() => selectLanguage('ko')}>한국어</button>
+                <button className="language-button" onClick={() => selectLanguage('ch')}>中文</button>
             </div>
         </div>
     );

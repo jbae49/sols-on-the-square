@@ -74,7 +74,7 @@ function App() {
             <Menu />
             <footer className="footer">
               <div className='tip-julia'>
-                💓<br />
+                ❤️<br />
                 <a href="https://account.venmo.com/u/juliabae" onClick={handleVenmoClick} target="_blank" rel="noopener noreferrer">
                   Tip Julia for creating this digital webpage!
                 </a>
