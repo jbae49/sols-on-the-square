@@ -1,19 +1,10 @@
+// ScrollButton.js
 import React, { useState, useEffect } from 'react';
-import { FaArrowCircleUp } from 'react-icons/fa';
+import { FaArrowCircleUp, FaArrowCircleDown } from 'react-icons/fa';
 import { Button } from './Styles';
+import './ScrollButton.css';
 
 const ScrollButton = () => {
-    const [visible, setVisible] = useState(false);
-
-    const toggleVisible = () => {
-        const scrolled = document.documentElement.scrollTop;
-        if (scrolled > 300) {
-            setVisible(true);
-        } else if (scrolled <= 300) {
-            setVisible(false);
-        }
-    };
-
     const scrollToTop = () => {
         window.scrollTo({
             top: 0,
@@ -21,26 +12,22 @@ const ScrollButton = () => {
         });
     };
 
-    useEffect(() => {
-        let timeoutId = null;
-
-        const handleScroll = () => {
-            clearTimeout(timeoutId);
-            timeoutId = setTimeout(toggleVisible, 100);
-        };
-
-        window.addEventListener('scroll', handleScroll);
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-            clearTimeout(timeoutId);
-        };
-    }, []);
+    const scrollToBottom = () => {
+        window.scrollTo({
+            top: document.documentElement.scrollHeight,
+            behavior: 'smooth',
+        });
+    };
 
     return (
-        <Button>
-            <FaArrowCircleUp onClick={scrollToTop} style={{ display: visible ? 'inline' : 'none' }} />
-        </Button>
+        <div>
+            <div className="scroll-button scroll-to-top" onClick={scrollToTop}>
+                <FaArrowCircleUp size={30} />
+            </div>
+            <div className="scroll-button scroll-to-bottom" onClick={scrollToBottom}>
+                <FaArrowCircleDown size={30} />
+            </div>
+        </div>
     );
 };
 

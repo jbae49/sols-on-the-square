@@ -72,19 +72,25 @@ function App() {
           <LanguageSelectionModal onLanguageSelected={handleLanguageSelected} />
           <div className="App">
             <Menu />
+            <footer className="footer">
+              <div className='tip-julia'>
+                💓<br />
+                <a href="https://account.venmo.com/u/juliabae" onClick={handleVenmoClick} target="_blank" rel="noopener noreferrer">
+                  Tip Julia for creating this digital webpage!
+                </a>
+
+              </div>
+            </footer>
             <div id='cart'>
               <Cart />
             </div>
             <ScrollButton />
           </div>
+
         </CartProvider>
       </LanguageProvider>
-      <div className='tip-julia'>
-        💓<br />
-        <a href="https://account.venmo.com/u/juliabae" onClick={handleVenmoClick} target="_blank" rel="noopener noreferrer">
-          Tip Julia for creating this digital webpage!
-        </a>
-      </div>
+
+
     </div>
   );
 }
