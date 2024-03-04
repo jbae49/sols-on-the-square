@@ -202,10 +202,10 @@
         "鸡排 - 加咖喱 (Chicken Donkatsu - Add Curry)"
     ],
     "meat_5_price": {
-        "Pork": "$19.99",
-        "Chicken": "$19.99",
-        "Pork Donkatsu - Add Curry": "$21.99",
-        "Chicken Donkatsu - Add Curry": "$21.99"
+        "猪肉 (Pork)": "$19.99",
+        "鸡肉 (Chicken)": "$19.99",
+        "猪排 - 加咖喱 (Pork Donkatsu - Add Curry)": "$21.99",
+        "鸡排 - 加咖喱 (Chicken Donkatsu - Add Curry)": "$21.99"
     },
     "meat_6_price": "$19.99",
     "meat_7": "M6. Osam Bulgogi (鱿鱼猪肉炒)",
@@ -226,9 +226,9 @@
         "豆腐炒面 (With Tofu)"
     ],
     "noodles_1_price": {
-        "Chopchae with Veggies": "$17.99",
-        "With Beef": "$17.99",
-        "With Tofu": "$17.99"
+        "蔬菜炒面 (Chopchae with Veggies)": "$17.99",
+        "牛肉炒面 (With Beef)": "$17.99",
+        "豆腐炒面 (With Tofu)": "$17.99"
     },
     "noodles_2": "N2. 乌东 (Woodong)",
     "noodles_2_description": "日式粗面条汤",
