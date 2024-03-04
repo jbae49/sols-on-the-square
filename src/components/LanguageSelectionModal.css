@@ -23,6 +23,7 @@
     width: 80%; /* Could be more or less, depending on screen size */
     max-width: 500px; /* Maximum width */
     text-align: center; /* Center the text inside the modal */
+    color: #FF69B4;
 }
 
 button {
@@ -33,8 +34,10 @@ button {
 .language-button {
     margin: 10px;
     padding: 10px;
-    font-size: 20px; /* Increase font size */
+    font-size: 18px; /* Increase font size */
     /* You can add more styling here as needed */
     font-family: 'Noto Sans';
+    color: brown;
+    font-weight: bold;
 }
 
