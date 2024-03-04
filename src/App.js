@@ -31,7 +31,7 @@ function App() {
     // Function to track the visit start
     const trackVisit = async () => {
       try {
-        const response = await axios.post('https://ec2-52-14-182-61.us-east-2.compute.amazonaws.com:5001/track-visit', {});
+        const response = await axios.post('https://solsonthesquare.com/track-visit', {});
         console.log('Visit tracked successfully.');
         if (isMounted) {
           setSessionId(response.data.sessionId); // Save the session ID from the response
