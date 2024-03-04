@@ -22,10 +22,18 @@ const ScrollButton = () => {
     };
 
     useEffect(() => {
-        window.addEventListener('scroll', toggleVisible);
+        let timeoutId = null;
+
+        const handleScroll = () => {
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(toggleVisible, 100);
+        };
+
+        window.addEventListener('scroll', handleScroll);
 
         return () => {
-            window.removeEventListener('scroll', toggleVisible);
+            window.removeEventListener('scroll', handleScroll);
+            clearTimeout(timeoutId);
         };
     }, []);
 
