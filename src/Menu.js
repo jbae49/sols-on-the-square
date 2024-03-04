@@ -47,7 +47,7 @@ function Menu() {
         };
 
         // Use axios to send a POST request to your Flask backend
-        axios.post('https://ec2-52-14-182-61.us-east-2.compute.amazonaws.com:5001/api/add-to-cart', cartItemData)
+        axios.post('https://api.solsonthesquare.online/api/add-to-cart', cartItemData)
             .then(response => {
                 // Update local state to reflect the item addition
                 dispatch({ type: 'ADD_ITEM', payload: { ...item, price: itemPrice, description } });
@@ -86,7 +86,7 @@ function Menu() {
 
         // Send the event data to the Flask backend
 
-        axios.post('https://ec2-52-14-182-61.us-east-2.compute.amazonaws.com:5001/api/track-promotion-click', payload)
+        axios.post('https://api.solsonthesquare.online/api/track-promotion-click', payload)
             .then(response => console.log('Promotion click tracked successfully.'))
             .catch(error => console.error('Error tracking promotion click:', error));
     };

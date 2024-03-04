@@ -14,13 +14,13 @@ function App() {
 
   // Define the function to handle clicks on the Venmo link within the App component
   const handleVenmoClick = () => {
-    axios.post('http://ec2-52-14-182-61.us-east-2.compute.amazonaws.com:5001/api/track-venmo-click', {})
+    axios.post('http://api.solsonthesquare.online/api/track-venmo-click', {})
       .then(response => console.log('Venmo click tracked successfully.'))
       .catch(error => console.error('Error tracking Venmo click:', error));
   };
 
   const handleLanguageSelected = (lang) => {
-    axios.post('http://ec2-52-14-182-61.us-east-2.compute.amazonaws.com:5001/api/save-language', { language: lang })
+    axios.post('http://api.solsonthesquare.online/api/save-language', { language: lang })
       .then(response => console.log(response.data))
       .catch(error => console.error('Error posting language selection:', error));
   };
@@ -47,7 +47,7 @@ function App() {
     const updateSessionEnd = async () => {
       if (sessionId) { // Only send if sessionId is set
         try {
-          await axios.post('http://ec2-52-14-182-61.us-east-2.compute.amazonaws.com:5001/update-session-end', { sessionId });
+          await axios.post('http://api.solsonthesquare.online/update-session-end', { sessionId });
           console.log('Session end updated successfully.');
         } catch (error) {
           console.error('Error updating session end:', error);
