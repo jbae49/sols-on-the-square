@@ -128,7 +128,7 @@
     "special_big_soup_5_description": "Spicy stew pot with ham, sausage, bacon, tofu, Ramen noodle, vegetables, and kimchi.",
     "special_big_soup_5_price": "$36.99",
     "bap_title": "Bap (Cooked Rice)",
-    "bap_1": "B1. Bibimbap (Mixed Rice)",
+    "bap_1": "B1. Regular Bibimbap (Mixed Rice)",
     "bap_1_description": "Rice bowl with topping, cooked vegetables, a sunny-side-up egg, and spicy sauce on the side. Choices (Beef, Pork, Chicken, Tofu, Squid, Fish egg)",
     "bap_1_options": [
         "Beef",
@@ -146,9 +146,27 @@
         "Tofu": "$15.99",
         "Fish Egg": "$15.99"
     },
-    "bap_2": "B3. Kimchi-Tofu Deopbap",
-    "bap_2_description": "Rice topped with kimchi-Tofu. Spicy.",
-    "bap_2_price": "$14.99",
+    "bap_2": "B2. Stone Bowl Bibimbap (Mixed Rice)",
+    "bap_2_description": "Same rice bowl as regular bibimbap but served in stone bowl that will keep the rice hot and make the bottom of the rice crispy!",
+    "bap_2_options": [
+        "Beef",
+        "Pork",
+        "Chicken",
+        "Squid",
+        "Tofu",
+        "Fish Egg"
+    ],
+    "bap_2_price": {
+        "Beef": "$15.99",
+        "Pork": "$15.99",
+        "Chicken": "$15.99",
+        "Squid": "$15.99",
+        "Tofu": "$15.99",
+        "Fish Egg": "$15.99"
+    },
+    "bap_6": "B3. Kimchi-Tofu Deopbap",
+    "bap_6_description": "Rice topped with kimchi-Tofu. Spicy.",
+    "bap_6_price": "$14.99",
     "bap_3": "B4. Ojing-eo Deopbap (Spicy Squid Rice)",
     "bap_3_description": "Rice topped with spicy squid topping.",
     "bap_3_price": "$15.99",
