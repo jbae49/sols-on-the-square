@@ -252,7 +252,7 @@
     },
     "noodles_2": "N2. Woodong",
     "noodles_2_description": "Japanese Style Thick Noodle Soup",
-    "noddles_2_options": [
+    "nooddles_2_options": [
         "Veggies",
         "Seafood",
         "Beef"
@@ -264,7 +264,7 @@
     },
     "noodles_3": "N3. Kalguksu",
     "noodles_3_description": "Korean style wheat flour noodle soup. Choices (Vegetable, Seafood, Beef)",
-    "noddles_3_options": [
+    "nooddles_3_options": [
         "Veggies",
         "Seafood",
         "Beef"
