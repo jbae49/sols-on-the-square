@@ -146,9 +146,27 @@
         "豆腐 (Tofu)": "$15.99",
         "鱼籽 (Fish Egg)": "$15.99"
     },
-    "bap_2": "B3. 泡菜豆腐盖饭 (Kimchi-Tofu Deopbap)",
-    "bap_2_description": "饭上面加泡菜和豆腐。辣。",
-    "bap_2_price": "$14.99",
+    "bap_2": "B2. 石锅拌饭 (Stone Bowl Bibimbap)",
+    "bap_2_description": "与普通拌饭相同的米饭，但是在石锅中供应，能够保持米饭热度并使米饭底部变脆！",
+    "bap_2_options": [
+        "牛肉 Beef",
+        "猪肉 Pork",
+        "鸡肉 Chicken",
+        "鱿鱼 Squid",
+        "豆腐 Tofu",
+        "鱼卵 Fish Egg"
+    ],
+    "bap_2_price": {
+        "牛肉 Beef": "$15.99",
+        "猪肉 Pork": "$15.99",
+        "鸡肉 Chicken": "$15.99",
+        "鱿鱼 Squid": "$15.99",
+        "豆腐 Tofu": "$15.99",
+        "鱼卵 Fish Egg": "$15.99"
+    },
+    "bap_6": "B3. 泡菜豆腐饭 (Kimchi-Tofu Deopbap)",
+    "bap_6_description": "饭上面盖着泡菜豆腐。辣的。",
+    "bap_6_price": "$14.99",
     "bap_3": "B4. 辣鱿鱼盖饭 (Ojing-eo Deopbap)",
     "bap_3_description": "饭上面加辣鱿鱼。",
     "bap_3_price": "$15.99",
