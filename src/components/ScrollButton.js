@@ -1,6 +1,8 @@
 // ScrollButton.js
 import React, { useState, useEffect } from 'react';
-import { FaArrowCircleUp, FaArrowCircleDown } from 'react-icons/fa';
+import { FaArrowCircleUp, FaShoppingCart } from 'react-icons/fa';
+import { IoMenu } from "react-icons/io5";
+
 import { Button } from './Styles';
 import './ScrollButton.css';
 
@@ -22,10 +24,10 @@ const ScrollButton = () => {
     return (
         <div>
             <div className="scroll-button scroll-to-top" onClick={scrollToTop}>
-                <FaArrowCircleUp size={30} />
+                <IoMenu size={40} />
             </div>
             <div className="scroll-button scroll-to-bottom" onClick={scrollToBottom}>
-                <FaArrowCircleDown size={30} />
+                <FaShoppingCart size={40} />
             </div>
         </div>
     );

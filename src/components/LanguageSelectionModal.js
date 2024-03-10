@@ -32,6 +32,7 @@ function LanguageSelectionModal() {
                 <button className="language-button" onClick={() => selectLanguage('en')}>English</button>
                 <button className="language-button" onClick={() => selectLanguage('ko')}>한국어</button>
                 <button className="language-button" onClick={() => selectLanguage('ch')}>中文</button>
+                <h3>Add to cart and show it to our server</h3>
             </div>
         </div>
     );

@@ -11,7 +11,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: monospace;
+    font-family: Rufina;
     color: blue;
 }
 
@@ -20,10 +20,11 @@
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
+    font-family: Rufina;
     width: 80%; /* Could be more or less, depending on screen size */
     max-width: 500px; /* Maximum width */
     text-align: center; /* Center the text inside the modal */
-    color: #FF69B4;
+    color: black;
 }
 
 button {
@@ -32,12 +33,16 @@ button {
 }
 
 .language-button {
-    margin: 10px;
-    padding: 10px;
+    margin: 5px; /* Adjust margin for spacing between buttons */
+    padding: 10px 20px; /* Adjust padding for button size */
     font-size: 18px; /* Increase font size */
-    /* You can add more styling here as needed */
-    font-family: 'Noto Sans';
-    color: brown;
+    font-family: Rufina;
     font-weight: bold;
+    color: white; /* Change text color to white */
+    background-color: #C95B0C; /* Set your desired background color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Add border radius for rounded corners */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
 }
 

@@ -10,28 +10,35 @@ const cartReducer = (state, action) => {
                 return {
                     ...state,
                     items: state.items.map(item =>
-                        item.key === action.payload.key ? {...item, quantity: item.quantity+1} : item),
+                        item.key === action.payload.key ? { ...item, quantity: item.quantity + action.payload.quantity } : item),
                 };
             }
-            return {...state, items: [...state.items, {...action.payload, quantity: 1}]};
+            return { ...state, items: [...state.items, action.payload] };
+        case 'UPDATE_ITEM_QUANTITY':
+            return {
+                ...state,
+                items: state.items.map(item =>
+                    item.key === action.payload.key ? { ...item, quantity: action.payload.quantity } : item),
+            };
         case 'REMOVE_ITEM':
             return {
                 ...state,
                 items: state.items.filter(item => item.key !== action.payload.key),
             };
         case 'CLEAR_CART':
-            return {items: []}
-
+            return { items: [] };
         default:
             return state;
     }
 }
 
-export const CartProvider = ({children}) => {
-    const [state, dispatch] = useReducer(cartReducer, { items: []})
+
+
+export const CartProvider = ({ children }) => {
+    const [state, dispatch] = useReducer(cartReducer, { items: [] })
 
     return (
-        <CartContext.Provider value = {{state, dispatch}}>
+        <CartContext.Provider value={{ state, dispatch }}>
             {children}
         </CartContext.Provider>
     );

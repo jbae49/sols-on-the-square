@@ -13,6 +13,8 @@ function Menu() {
 
     const [notification, setNotification] = useState({});
     const [selectedOptions, setSelectedOptions] = useState({}); // New state to handle selected options
+    const [quantities, setQuantities] = useState({});
+
 
     const scrollToTop = () => {
         window.scrollTo({
@@ -39,32 +41,31 @@ function Menu() {
         } else {
             itemPrice = parseFloat(item.price.replace(/^\$/, ''));
         }
-
+        const quantity = quantities[key] || 1;
         // Prepare the data to be sent to the backend
         const cartItemData = {
             itemName: description, // Use the item's description as its name
-            quantity: 1, // This example hardcodes quantity to 1, adjust as necessary
+            quantity: quantity, // This example hardcodes quantity to 1, adjust as necessary
         };
 
         // Use axios to send a POST request to your Flask backend
         axios.post('https://api.solsonthesquare.online/api/add-to-cart', cartItemData)
             .then(response => {
-                // Update local state to reflect the item addition
-                dispatch({ type: 'ADD_ITEM', payload: { ...item, price: itemPrice, description } });
+                dispatch({ type: 'ADD_ITEM', payload: { ...item, price: itemPrice, description, quantity } });
                 setNotification(prev => ({ ...prev, [key]: `${description} added to cart!` }));
-                // setNotification(prev => ({ ...prev, [key]: `Added to cart!` }));
-                // Clear the notification after 3 seconds
                 setTimeout(() => setNotification(prev => ({ ...prev, [key]: undefined })), 3000);
-
-                console.log(response.data.message); // Success message from the server
             })
             .catch(error => {
                 console.error('Error adding item to cart:', error);
-                // Handle error (e.g., show an error message)
             });
     };
 
-
+    const handleQuantityChange = (itemKey, quantity) => {
+        setQuantities(prevQuantities => ({
+            ...prevQuantities,
+            [itemKey]: quantity
+        }));
+    };
     const handleLanguageChange = (language) => {
         i18n.changeLanguage(language);
 
@@ -150,11 +151,16 @@ function Menu() {
             </div>
             {/* Promotion Message */}
             <div className='review-promotion'>
-                <p>{t('google_review_promotion')} <a href="https://www.google.com/maps/place/Sol's+on+the+Square/@43.0766456,-89.3834015,17z/data=!4m8!3m7!1s0x88065340a318543f:0xf9729a16caad16cb!8m2!3d43.0766456!4d-89.3834015!9m1!1b1!16s%2Fg%2F1yg6ngmwn?entry=ttu"
+                <h2>❤️‍🔥 Special Offer ❤️‍🔥</h2>
+                <p>{t('google_review_promotion')}</p>
+                <a href="https://www.google.com/maps/place/Sol's+on+the+Square/@43.0766456,-89.3834015,17z/data=!4m8!3m7!1s0x88065340a318543f:0xf9729a16caad16cb!8m2!3d43.0766456!4d-89.3834015!9m1!1b1!16s%2Fg%2F1yg6ngmwn?entry=ttu"
                     target="_blank"
                     rel="noopener noreferrer"
-                    onClick={handlePromotionClick}>Click here</a></p>
+                    onClick={handlePromotionClick}>
+                    Click Here
+                </a>
             </div>
+
             <div className='guide-to-cart'>
                 <p>{t('guide-to-cart')}</p>
             </div>
@@ -182,44 +188,46 @@ function Menu() {
 
                         {/* Handling the vegetarian section similar to other sections */}
                         {section === 'vegetarian' ? (
-                            <>
-                                {/* <div className='warning-box'>
-                                    <p>{t('vegetarian_note')}</p>
-                                </div> */}
-                                {Array.from({ length: 4 }, (_, i) => i + 1).map(num => {
-                                    const key = `vegetarian_${num}`;
-                                    const itemName = t(`${key}`);
-                                    const itemDescription = t(`${key}_description`, { defaultValue: '' });
-                                    const itemPrice = t(`${key}_price`);
-                                    const itemImage = `/${key}.jpg`; // Assuming you have images named after the item keys
+                            Array.from({ length: 4 }, (_, i) => i + 1).map(num => {
+                                const key = `vegetarian_${num}`;
+                                const itemName = t(`${key}`);
+                                const itemDescription = t(`${key}_description`, { defaultValue: '' });
+                                const itemPrice = t(`${key}_price`);
+                                const itemImage = `/${key}.jpg`; // Assuming you have images named after the item keys
 
-                                    const hasOptions = t(`${key}_options`, { returnObjects: true }) !== undefined;
-                                    const item = {
-                                        key,
-                                        description: itemName,
-                                        price: itemPrice,
-                                        image: itemImage,
-                                    };
+                                const item = {
+                                    key,
+                                    description: itemName,
+                                    price: itemPrice,
+                                    image: itemImage,
+                                };
 
-                                    return (
-                                        <div key={key} className='menu-item'>
-                                            <img src={item.image} alt={itemName} className='menu-image' onError={handleImageError} />
-                                            <div className='menu-text'>
-                                                <h3>{itemName}</h3>
-                                                <p>{itemDescription}</p>
-                                                <p>{itemPrice}</p>
-                                            </div>
-                                            <div className="button-notification-container" style={{ textAlign: 'center' }}> {/* Ensure this div wraps both button and notification */}
-                                                <button className='add-to-cart-button' onClick={() => addToCart(item, key, selectedOptions[key])}>
-                                                    Add to Cart
-                                                </button>
-                                                {/* Conditionally render notification below the button */}
-                                                <div className='cart-notification'>{notification[key] ? notification[key] : ''}</div>
-                                            </div>
+                                return (
+                                    <div key={key} className='menu-item'>
+                                        <img src={item.image} alt={itemName} className='menu-image' onError={handleImageError} />
+                                        <div className='menu-text'>
+                                            <h3>{itemName}</h3>
+                                            <p>{itemDescription}</p>
+                                            <p>{itemPrice}</p>
                                         </div>
-                                    );
-                                })}
-                            </>
+                                        <div className="button-notification-container">
+                                            <select
+                                                value={quantities[key] || 1}
+                                                onChange={(e) => handleQuantityChange(key, parseInt(e.target.value))}
+                                                className='quantity-selector'
+                                            >
+                                                {[1, 2, 3, 4, 5].map(n => (
+                                                    <option key={n} value={n}>{n}</option>
+                                                ))}
+                                            </select>
+                                            <button className='add-to-cart-button' onClick={() => addToCart(item, key)}>
+                                                Add to Cart
+                                            </button>
+                                            {notification[key] && <span className='cart-notification'>{notification[key]}</span>}
+                                        </div>
+                                    </div>
+                                );
+                            })
                         ) : (Array.from({ length: 15 }, (_, i) => i + 1).map(itemNumber => {
                             const key = `${section}_${itemNumber}`;
                             const itemName = t(key, { defaultValue: '' });
@@ -234,7 +242,6 @@ function Menu() {
                             };
                             return (
                                 <div key={key} className='menu-item'>
-
                                     <img src={`${baseImageUrl}/${key}.jpg`} alt={itemName} className='menu-image' onError={handleImageError} />
                                     <div className='menu-text'>
                                         <h3>{itemName}</h3>
@@ -242,10 +249,21 @@ function Menu() {
                                         {!hasOptions && <p className='menu-item-price'>{item.price}</p>}
                                         {hasOptions && renderOptionsDropdown(key)}
                                     </div>
-                                    <button className='add-to-cart-button' onClick={() => addToCart(item, key, selectedOptions[key])}>
-                                        Add to Cart
-                                    </button>
-                                    {notification[key] && <span className='cart-notification'>{notification[key]}</span>}
+                                    <div className="button-notification-container">
+                                        <select
+                                            value={quantities[key] || 1}
+                                            onChange={(e) => handleQuantityChange(key, parseInt(e.target.value))}
+                                            className='quantity-selector'
+                                        >
+                                            {[1, 2, 3, 4, 5].map(n => (
+                                                <option key={n} value={n}>{n}</option>
+                                            ))}
+                                        </select>
+                                        <button className='add-to-cart-button' onClick={() => addToCart(item, key, selectedOptions[key])}>
+                                            Add to Cart
+                                        </button>
+                                        {notification[key] && <span className='cart-notification'>{notification[key]}</span>}
+                                    </div>
                                 </div>
                             );
                         })

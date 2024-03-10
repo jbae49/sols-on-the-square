@@ -1,5 +1,5 @@
 {
-    "google_review_promotion": "Leave a Google review and receive 6 delicious fried or steamed dumplings for free 🥟",
+    "google_review_promotion": "Free 6 delicious fried or steamed dumplings! Leave a Google review and show it to the server 🥟",
     "guide-to-cart": "Simply add the dishes to the cart and present it to our server.",
     "menu_title": "Menu",
     "select_option": "Select Option (Required)",
@@ -252,7 +252,7 @@
     },
     "noodles_2": "N2. Woodong",
     "noodles_2_description": "Japanese Style Thick Noodle Soup",
-    "nooddles_2_options": [
+    "noodles_2_options": [
         "Veggies",
         "Seafood",
         "Beef"
@@ -264,7 +264,7 @@
     },
     "noodles_3": "N3. Kalguksu",
     "noodles_3_description": "Korean style wheat flour noodle soup. Choices (Vegetable, Seafood, Beef)",
-    "nooddles_3_options": [
+    "noodles_3_options": [
         "Veggies",
         "Seafood",
         "Beef"
